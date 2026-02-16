@@ -281,14 +281,14 @@
                 </div>
 
                 <div class="reveal delay-100 bg-zinc-50 p-8 md:p-12 rounded-2xl border border-zinc-100">
-                    <form class="space-y-6">
-                        <input type="text" placeholder="Nome"
+                    <form class="space-y-6" onsubmit="sendContactWhatsApp(event)">
+                        <input type="text" id="contact-name" placeholder="Nome" required
                             class="w-full bg-white p-4 rounded-xl border border-zinc-200 text-sm focus:outline-none focus:border-black transition">
-                        <textarea placeholder="Mensagem" rows="4"
+                        <textarea id="contact-message" placeholder="Mensagem" rows="4" required
                             class="w-full bg-white p-4 rounded-xl border border-zinc-200 text-sm focus:outline-none focus:border-black transition"></textarea>
                         <button type="submit"
                             class="w-full bg-black text-white py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-zinc-800 transition">
-                            Enviar Mensagem
+                            Enviar Mensagem via WhatsApp
                         </button>
                     </form>
                 </div>

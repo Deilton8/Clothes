@@ -236,11 +236,58 @@ function renderCart() {
 }
 
 function checkoutWhatsApp() {
-    if (cart.length === 0) return;
-    let msg = "Olá! Gostaria de encomendar:\n" + cart.map(i => `• ${i.quantity}x ${i.name} (Tam: ${i.size})`).join('\n');
-    let total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-    msg += `\n\nTotal: MZN ${total.toFixed(2)}`;
-    window.open(`https://wa.me/258876423131?text=${encodeURIComponent(msg)}`, '_blank');
+    if (cart.length === 0) {
+        showToast("Seu carrinho está vazio!");
+        return;
+    }
+
+    // Configurações da Loja
+    const phoneNumber = "258876423131"; // Já está no formato correto (DDI + DDD + Número)
+    const storeName = "LUXE STUDIO";
+
+    // Construção da Mensagem
+    let message = `*Novo Pedido - ${storeName}*\n`;
+    message += `--------------------------\n\n`;
+
+    cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        message += `*${item.quantity}x* ${item.name}\n`;
+        message += `> Tamanho: ${item.size}\n`;
+        message += `> Preço: MZN ${subtotal.toFixed(2)}\n\n`;
+    });
+
+    const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+    message += `--------------------------\n`;
+    message += `*Total: MZN ${total.toFixed(2)}*\n\n`;
+    message += `_Por favor, confirme a disponibilidade e os detalhes de pagamento._`;
+
+    // Encode e redirecionamento
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+}
+
+function sendContactWhatsApp(event) {
+    event.preventDefault(); // Impede o recarregamento da página
+
+    const name = document.getElementById('contact-name').value;
+    const messageBody = document.getElementById('contact-message').value;
+    const phoneNumber = "258876423131"; // Seu número configurado
+
+    // Formatação da mensagem profissional
+    let fullMessage = `*Novo Contato via Site - LUXE*\n`;
+    fullMessage += `--------------------------\n`;
+    fullMessage += `*Nome:* ${name}\n`;
+    fullMessage += `*Mensagem:* ${messageBody}\n`;
+    fullMessage += `--------------------------`;
+
+    const encodedMessage = encodeURIComponent(fullMessage);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Abre o WhatsApp em uma nova aba
+    window.open(whatsappUrl, '_blank');
 }
 
 function observeScroll() {
