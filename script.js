@@ -241,28 +241,28 @@ function checkoutWhatsApp() {
         return;
     }
 
-    // Configurações da Loja
-    const phoneNumber = "258876423131"; // Já está no formato correto (DDI + DDD + Número)
+    const phoneNumber = "258876423131";
     const storeName = "LUXE STUDIO";
 
-    // Construção da Mensagem
     let message = `*Novo Pedido - ${storeName}*\n`;
     message += `--------------------------\n\n`;
 
-    cart.forEach(item => {
+    cart.forEach((item, index) => {
         const subtotal = item.price * item.quantity;
-        message += `*${item.quantity}x* ${item.name}\n`;
-        message += `> Tamanho: ${item.size}\n`;
-        message += `> Preço: MZN ${subtotal.toFixed(2)}\n\n`;
+        // Adiciona a imagem e detalhes do item
+        message += `*Item ${index + 1}:* ${item.name}\n`;
+        message += `> *Imagem:* ${item.img}\n`; // Link da imagem
+        message += `> *Tamanho:* ${item.size}\n`;
+        message += `> *Quantidade:* ${item.quantity}\n`;
+        message += `> *Subtotal:* MZN ${subtotal.toFixed(2)}\n\n`;
     });
 
     const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
     message += `--------------------------\n`;
     message += `*Total: MZN ${total.toFixed(2)}*\n\n`;
-    message += `_Por favor, confirme a disponibilidade e os detalhes de pagamento._`;
+    message += `_Confirme os detalhes do pedido._`;
 
-    // Encode e redirecionamento
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
