@@ -240,7 +240,7 @@ function checkoutWhatsApp() {
     let msg = "Olá! Gostaria de encomendar:\n" + cart.map(i => `• ${i.quantity}x ${i.name} (Tam: ${i.size})`).join('\n');
     let total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
     msg += `\n\nTotal: MZN ${total.toFixed(2)}`;
-    window.open(`https://wa.me/258845430322?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/258876423131?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 function observeScroll() {
