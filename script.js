@@ -1,12 +1,27 @@
-// Banco de dados de produtos
-const products = [
-    { id: 1, category: 'vestidos', name: "Mattea One Shoulder Midi Dress", price: 6999.00, img: "img/1b.webp", description: "Design feminino encontra estilo em alta. O Vestido Midi Um Ombro Mattea na cor Laranja Flamejante da Forever New é a peça que seu guarda-roupa estava esperando.", sizes: [12] },
-    { id: 2, category: 'vestidos', name: "Addie Pleated Skirt Midi Dress", price: 6999.00, img: "img/2b.webp", description: "Design feminino encontra estilo em alta. O Vestido Midi Addie com Saia Plissada na Estampa Marnie da Forever New é a peça que seu guarda-roupa estava esperando.", sizes: [10] },
-    { id: 3, category: 'vestidos', name: "Elena Printed Midi Dress", price: 6999.00, img: "img/3b.webp", description: "Design feminino encontra estilo em alta. O Vestido Midi Estampado Elena em Florais Chelsea da Forever New é a peça que seu guarda-roupa estava esperando.", sizes: [12] },
-    { id: 4, category: 'vestidos', name: "Jemma Shirt Midi Dress", price: 6999.00, img: "img/4b.webp", description: "Design feminino encontra estilo em alta. O Vestido Camisa Midi Jemma em Porcelana da Forever New é a peça que seu guarda-roupa estava esperando.", sizes: [12] },
-    { id: 5, category: 'vestidos', name: "Abbey Printed Shirt Midi Dress", price: 6999.00, img: "img/5b.webp", description: "Design feminino encontra estilo em alta. O Vestido Midi Camisa Estampado Abbey em Olympia Holiday da Forever New é a peça que seu guarda-roupa estava esperando.", sizes: [8] },
-    { id: 6, category: 'vestidos', name: "Arabella Printed Midi Dress", price: 6999.00, img: "img/6b.webp", description: "Design feminino encontra estilo em alta. O Vestido Midi Arabella Estampado na estampa Casablanca Holiday da Forever New é a peça que o seu guarda-roupa estava esperando.", sizes: [12] }
+// Base de dados global de produtos (Feminino e Masculino)
+const allProducts = [
+    // --- PRODUTOS FEMININOS ---
+    { id: 1, gender: 'feminino', category: 'vestidos', name: "Mattea One Shoulder Midi", price: 6999.00, img: "img/mulher/1b.webp", description: "Design feminino encontra estilo em alta. O Vestido Midi Um Ombro Mattea é a peça que seu guarda-roupa estava esperando.", sizes: [8, 10, 12] },
+    { id: 2, gender: 'feminino', category: 'vestidos', name: "Addie Pleated Skirt Midi", price: 6999.00, img: "img/mulher/2b.webp", description: "O Vestido Midi Addie com Saia Plissada é a peça que seu guarda-roupa estava esperando.", sizes: [10, 12] },
+    { id: 3, gender: 'feminino', category: 'vestidos', name: "Elena Printed Midi", price: 6999.00, img: "img/mulher/3b.webp", description: "O Vestido Midi Estampado Elena em Florais Chelsea da Forever New.", sizes: [12] },
+    { id: 4, gender: 'feminino', category: 'vestidos', name: "Jemma Shirt Midi Dress", price: 6999.00, img: "img/mulher/4b.webp", description: "O Vestido Camisa Midi Jemma em Porcelana.", sizes: [8, 12] },
+    { id: 5, gender: 'feminino', category: 'blusas', name: "Abbey Printed Blouse", price: 3599.00, img: "img/mulher/5b.webp", description: "Blusa estampada Abbey em Olympia Holiday.", sizes: [8, 10] },
+    { id: 6, gender: 'feminino', category: 'blusas', name: "Arabella Silk Blouse", price: 4999.00, img: "img/mulher/6b.webp", description: "Blusa de seda Arabella, caimento perfeito.", sizes: [10, 12] },
+
+    // --- PRODUTOS MASCULINOS ---
+    { id: 101, gender: 'masculino', category: 'camisas', name: "Oxford Classic Fit White", price: 4500.00, img: "img/homem/m1.webp", description: "O essencial do guarda-roupa masculino. Camisa Oxford com corte clássico e tecido 100% algodão respirável.", sizes: ['S', 'M', 'L', 'XL'] },
+    { id: 102, gender: 'masculino', category: 'camisas', name: "Linen Resort Navy", price: 5200.00, img: "img/homem/m2.webp", description: "Perfeita para o clima tropical. Camisa de linho leve com gola resort, ideal para momentos casuais e sofisticados.", sizes: ['M', 'L', 'XL'] },
+    { id: 103, gender: 'masculino', category: 'camisas', name: "Premium Poplin Black", price: 4900.00, img: "img/homem/m3.webp", description: "A camisa preta definitiva. Tecido popeline sedoso ao toque, resistente a rugas e com caimento impecável.", sizes: ['S', 'M', 'L'] },
+    { id: 104, gender: 'masculino', category: 'calcas', name: "Tailored Chino Khaki", price: 6500.00, img: "img/homem/m4.webp", description: "Calças chino de corte à medida. Conforto moderno com um toque de elastano para mobilidade diária.", sizes: [30, 32, 34, 36] },
+    { id: 105, gender: 'masculino', category: 'calcas', name: "Smart Trouser Charcoal", price: 7200.00, img: "img/homem/m5.webp", description: "Eleve o seu look de escritório. Calças de alfaiataria em tom carvão, ideais para combinar com camisas claras.", sizes: [32, 34, 36] },
+    { id: 106, gender: 'masculino', category: 'calcas', name: "Everyday Denim Dark Wash", price: 5800.00, img: "img/homem/m6.webp", description: "O jeans perfeito para transitar do dia para a noite. Lavagem escura clássica sem desgastes artificiais.", sizes: [30, 32, 34, 36] }
 ];
+
+// Identifica a página actual com base no atributo do body
+const pageGender = document.body.getAttribute('data-gender') || 'feminino';
+
+// Filtra os produtos para mostrar apenas os da página actual
+const pageProducts = allProducts.filter(p => p.gender === pageGender);
 
 let cart = JSON.parse(localStorage.getItem('luxe_cart')) || [];
 let currentCategory = 'todos';
@@ -48,9 +63,10 @@ function sortProducts(type) {
 }
 
 function applyFiltersAndSort() {
+    // Usa apenas os produtos da página actual (pageProducts) para a vitrine
     filteredList = currentCategory === 'todos'
-        ? [...products]
-        : products.filter(p => p.category === currentCategory);
+        ? [...pageProducts]
+        : pageProducts.filter(p => p.category === currentCategory);
 
     if (currentSort === 'price-asc') filteredList.sort((a, b) => a.price - b.price);
     else if (currentSort === 'price-desc') filteredList.sort((a, b) => b.price - a.price);
@@ -60,34 +76,41 @@ function applyFiltersAndSort() {
 
 function renderProducts() {
     const grid = document.getElementById('product-grid');
+    if (!grid) return; // Protecção caso a página não tenha a grelha de produtos
+
     const itemsToDisplay = filteredList.slice(0, visibleItemsCount);
 
     grid.innerHTML = itemsToDisplay.map((p, index) => `
-                <div class="product-card group reveal" style="transition-delay: ${index * 100}ms">
-                    <div class="relative overflow-hidden aspect-[4/5] rounded-lg cursor-pointer" onclick="openProductModal(${p.id})">
-                        <img src="${p.img}" class="w-full h-full object-contain transition duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="mt-6 flex justify-between items-start">
-                        <div>
-                            <h4 class="font-bold text-lg uppercase cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h4>
-                            <p class="text-zinc-500 text-sm uppercase tracking-tighter">${p.category}</p>
-                        </div>
-                        <span class="font-bold text-lg">MZN ${p.price.toFixed(2)}</span>
-                    </div>
-                    <button onclick="openProductModal(${p.id})" class="w-full mt-4 border border-zinc-200 py-3 rounded-lg font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white transition">Escolher Tamanho</button>
+        <div class="product-card group reveal" style="transition-delay: ${index * 100}ms">
+            <div class="relative overflow-hidden aspect-[4/5] rounded-lg cursor-pointer" onclick="openProductModal(${p.id})">
+                <img src="${p.img}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+            </div>
+            <div class="mt-6 flex justify-between items-start">
+                <div>
+                    <h4 class="font-bold text-lg uppercase cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h4>
+                    <p class="text-zinc-500 text-sm uppercase tracking-tighter">${p.category}</p>
                 </div>
-            `).join('');
+                <span class="font-bold text-lg">MZN ${p.price.toFixed(2)}</span>
+            </div>
+            <button onclick="openProductModal(${p.id})" class="w-full mt-4 border border-zinc-200 py-3 rounded-lg font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white transition">Escolher Tamanho</button>
+        </div>
+    `).join('');
 
     const btnLoadMore = document.getElementById('pagination-container');
-    if (visibleItemsCount >= filteredList.length) btnLoadMore.style.display = 'none';
-    else btnLoadMore.style.display = 'flex';
+    if (btnLoadMore) {
+        if (visibleItemsCount >= filteredList.length) btnLoadMore.style.display = 'none';
+        else btnLoadMore.style.display = 'flex';
+    }
 
     lucide.createIcons();
     observeScroll();
 }
 
 function openProductModal(id) {
-    const p = products.find(p => p.id === id);
+    // Procura em TODOS os produtos, assim garantimos que encontra sempre a referência certa
+    const p = allProducts.find(p => p.id === id);
+    if (!p) return;
+
     currentSelectedSize = null;
 
     document.getElementById('modal-img').src = p.img;
@@ -99,8 +122,8 @@ function openProductModal(id) {
 
     const sizesContainer = document.getElementById('modal-sizes-container');
     sizesContainer.innerHTML = p.sizes.map(size => `
-                <button onclick="selectSize(this, ${size})" class="size-btn">${size}</button>
-            `).join('');
+        <button onclick="selectSize(this, '${size}')" class="size-btn">${size}</button>
+    `).join('');
 
     document.getElementById('modal-add-btn').onclick = (e) => { addToCartFromModal(p.id, e); };
     document.getElementById('product-modal').classList.remove('hidden');
@@ -111,13 +134,10 @@ function selectSize(btnElement, size) {
     document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
     btnElement.classList.add('selected');
     currentSelectedSize = size;
-    // Bloqueia o scroll
-    document.body.style.overflow = 'hidden';
 }
 
 function closeProductModal() {
     document.getElementById('product-modal').classList.add('hidden');
-    // Libera o scroll
     document.body.style.overflow = 'auto';
 }
 
@@ -133,13 +153,11 @@ function toggleCart() {
             overlay.classList.add('opacity-100');
             drawer.classList.remove('translate-x-full');
         }, 10);
-        // Bloqueia o scroll
         document.body.style.overflow = 'hidden';
     } else {
         drawer.classList.add('translate-x-full');
         overlay.classList.remove('opacity-100');
         setTimeout(() => overlay.classList.add('hidden'), 400);
-        // Libera o scroll
         document.body.style.overflow = 'auto';
     }
 }
@@ -153,7 +171,8 @@ function addToCartFromModal(id, event) {
         return;
     }
 
-    const product = products.find(p => p.id === id);
+    // Usamos allProducts para garantir que ele acha a imagem, preço, etc.
+    const product = allProducts.find(p => p.id === id);
     const uniqueId = `${product.id}-${currentSelectedSize}`;
 
     const item = cart.find(i => i.uniqueId === uniqueId);
@@ -201,33 +220,34 @@ function renderCart() {
 
     if (cart.length === 0) {
         container.innerHTML = `
-                    <div class="h-full flex flex-col items-center justify-center text-zinc-400">
-                        <i data-lucide="shopping-cart" class="w-12 h-12 mb-4"></i>
-                        <p class="uppercase text-xs font-bold tracking-widest">Seu carrinho está vazio</p>
-                    </div>
-                `;
+            <div class="h-full flex flex-col items-center justify-center text-zinc-400">
+                <i data-lucide="shopping-cart" class="w-12 h-12 mb-4"></i>
+                <p class="uppercase text-xs font-bold tracking-widest">Seu carrinho está vazio</p>
+            </div>
+        `;
         totalEl.innerText = `MZN 0,00`;
     } else {
         container.innerHTML = cart.map((item, index) => `
-                    <div class="flex gap-4 items-center cart-item-anim" style="animation-delay: ${index * 0.1}s">
-                        <img src="${item.img}" class="w-20 h-24 object-contain rounded-md bg-zinc-100">
-                        <div class="flex-grow">
-                            <h5 class="font-bold uppercase text-sm">${item.name}</h5>
-                            <div class="flex items-center gap-2 mb-2">
-                                <p class="text-zinc-500 text-xs">MZN ${item.price.toFixed(2)}</p>
-                                <span class="text-[10px] font-bold bg-black text-white px-2 py-0.5 rounded-full">TAM ${item.size}</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="flex items-center border border-zinc-200 rounded-full px-3 py-1 gap-4">
-                                    <button onclick="updateQuantity('${item.uniqueId}', -1)">-</button>
-                                    <span class="text-xs font-bold">${item.quantity}</span>
-                                    <button onclick="updateQuantity('${item.uniqueId}', 1)">+</button>
-                                </div>
-                                <button onclick="removeFromCart('${item.uniqueId}')" class="text-xs underline text-zinc-400 uppercase">Remover</button>
-                            </div>
-                        </div>
+            <div class="flex gap-4 items-center cart-item-anim" style="animation-delay: ${index * 0.1}s">
+                <img src="${item.img}" class="w-20 h-24 object-cover rounded-md">
+                <div class="flex-grow">
+                    <h5 class="font-bold uppercase text-sm">${item.name}</h5>
+                    <div class="flex items-center gap-2 mb-2">
+                        <p class="text-zinc-500 text-xs">MZN ${item.price.toFixed(2)}</p>
+                        <span class="text-[10px] font-bold bg-black text-white px-2 py-0.5 rounded-full">TAM ${item.size}</span>
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-zinc-400 border border-zinc-200 px-1 rounded">${item.gender === 'masculino' ? 'Homem' : 'Mulher'}</span>
                     </div>
-                `).join('');
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center border border-zinc-200 rounded-full px-3 py-1 gap-4">
+                            <button onclick="updateQuantity('${item.uniqueId}', -1)">-</button>
+                            <span class="text-xs font-bold">${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.uniqueId}', 1)">+</button>
+                        </div>
+                        <button onclick="removeFromCart('${item.uniqueId}')" class="text-xs underline text-zinc-400 uppercase">Remover</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
 
         const total = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
         totalEl.innerText = `MZN ${total.toFixed(2)}`;
@@ -241,17 +261,16 @@ function checkoutWhatsApp() {
         return;
     }
 
-    // Configurações da Loja
-    const phoneNumber = "258876423131"; // Já está no formato correcto (DDI + DDD + Número)
+    const phoneNumber = "258876423131";
     const storeName = "LUXE STUDIO";
 
-    // Construção da Mensagem
     let message = `*Novo Pedido - ${storeName}*\n`;
     message += `--------------------------\n\n`;
 
     cart.forEach(item => {
         const subtotal = item.price * item.quantity;
-        message += `*${item.quantity}x* ${item.name}\n`;
+        const generoTxt = item.gender === 'masculino' ? '[Homem]' : '[Mulher]';
+        message += `*${item.quantity}x* ${item.name} ${generoTxt}\n`;
         message += `> Tamanho: ${item.size}\n`;
         message += `> Preço: MZN ${subtotal.toFixed(2)}\n\n`;
     });
@@ -262,7 +281,6 @@ function checkoutWhatsApp() {
     message += `*Total: MZN ${total.toFixed(2)}*\n\n`;
     message += `_Por favor, confirme a disponibilidade e os detalhes de pagamento._`;
 
-    // Encode e redirecionamento
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
@@ -270,13 +288,11 @@ function checkoutWhatsApp() {
 }
 
 function sendContactWhatsApp(event) {
-    event.preventDefault(); // Impede o recarregamento da página
-
+    event.preventDefault();
     const name = document.getElementById('contact-name').value;
     const messageBody = document.getElementById('contact-message').value;
-    const phoneNumber = "258876423131"; // Seu número configurado
+    const phoneNumber = "258876423131";
 
-    // Formatação da mensagem profissional
     let fullMessage = `*Novo Contacto via Site - LUXE*\n`;
     fullMessage += `--------------------------\n`;
     fullMessage += `*Nome:* ${name}\n`;
@@ -285,8 +301,6 @@ function sendContactWhatsApp(event) {
 
     const encodedMessage = encodeURIComponent(fullMessage);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-    // Abre o WhatsApp numa nova aba
     window.open(whatsappUrl, '_blank');
 }
 
@@ -301,6 +315,7 @@ function observeScroll() {
 
 function handleTilt(e, container) {
     const img = container.querySelector('.tilt-image');
+    if (!img) return;
     const rect = container.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -310,11 +325,13 @@ function handleTilt(e, container) {
 }
 
 function resetTilt(container) {
-    container.querySelector('.tilt-image').style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    const img = container.querySelector('.tilt-image');
+    if (img) img.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
 }
 
 function initCarousel() {
     const items = document.querySelectorAll('.carousel-item');
+    if (items.length === 0) return;
     let currentIndex = 0;
     setInterval(() => {
         items[currentIndex].classList.remove('active');
@@ -324,29 +341,36 @@ function initCarousel() {
 }
 
 window.onload = () => {
+    // Limpeza por segurança caso haja lixo de versões antigas no LocalStorage
     if (cart.length > 0 && !cart[0].uniqueId) {
         cart = [];
         localStorage.removeItem('luxe_cart');
     }
-    filterProducts('todos');
+
+    // Inicia a grelha de produtos caso estejamos na secção de produtos
+    if (document.getElementById('product-grid')) {
+        filterProducts('todos');
+    }
+
     updateUI();
     initCarousel();
 };
 
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProductModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !document.getElementById('product-modal').classList.contains('hidden')) closeProductModal(); });
 
 function renderSkeletons() {
     const grid = document.getElementById('product-grid');
+    if (!grid) return;
     const skeletonCard = `
-                <div class="product-card group">
-                    <div class="aspect-[4/5] rounded-lg skeleton mb-6"></div>
-                    <div class="space-y-3">
-                        <div class="h-4 w-3/4 skeleton rounded"></div>
-                        <div class="h-4 w-1/4 skeleton rounded"></div>
-                    </div>
-                    <div class="h-12 w-full mt-4 skeleton rounded-lg"></div>
-                </div>
-            `;
+        <div class="product-card group">
+            <div class="aspect-[4/5] rounded-lg skeleton mb-6"></div>
+            <div class="space-y-3">
+                <div class="h-4 w-3/4 skeleton rounded"></div>
+                <div class="h-4 w-1/4 skeleton rounded"></div>
+            </div>
+            <div class="h-12 w-full mt-4 skeleton rounded-lg"></div>
+        </div>
+    `;
     grid.innerHTML = skeletonCard.repeat(3);
 }
 
@@ -393,7 +417,7 @@ function openModal(type) {
     content.innerHTML = legalText[type].content;
 
     modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden'; // Impede scroll ao fundo
+    document.body.style.overflow = 'hidden';
 }
 
 function closeLegalModal() {
@@ -401,26 +425,18 @@ function closeLegalModal() {
     document.body.style.overflow = 'auto';
 }
 
-// --- MENU MOBILE ---
 function toggleMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const icon = document.getElementById('menu-icon');
     const isClosed = menu.classList.contains('-translate-y-full');
 
     if (isClosed) {
-        // Abrir Menu
         menu.classList.remove('-translate-y-full', 'opacity-0');
-        // Impedir scroll da página atrás do menu
         document.body.style.overflow = 'hidden';
-
-        // Trocar ícone (opcional, requer recriar o ícone ou alterar atributo)
-        // Uma forma simples é rodar o ícone de menu
         icon.style.transform = 'rotate(90deg)';
     } else {
-        // Fechar Menu
         menu.classList.add('-translate-y-full', 'opacity-0');
         document.body.style.overflow = 'auto';
-
         icon.style.transform = 'rotate(0deg)';
     }
 }

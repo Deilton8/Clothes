@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUXE | Experiência de Compra Curada</title>
+    <title>LUXE | Mulher</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-zinc-50 text-zinc-950 overflow-x-hidden">
+<body data-gender="feminino" class="bg-zinc-50 text-zinc-950 overflow-x-hidden">
 
     <div id="toast-container"></div>
 
@@ -19,23 +19,22 @@
         class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-lg border-b border-zinc-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative z-50 bg-white/0">
 
-            <a href="/index.html"
-                class="text-2xl font-black tracking-tighter uppercase hover:scale-105 transition-transform">
+            <a href="/" class="text-2xl font-black tracking-tighter uppercase hover:scale-105 transition-transform">
                 Luxe<span class="text-zinc-400">.</span>
             </a>
 
-            <div class="hidden md:flex items-center gap-10">
+            <div class="hidden md:flex items-center gap-8">
                 <div class="flex gap-4 border-r border-zinc-200 pr-8">
                     <a href="feminino.html"
-                        class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-black transition-colors">Mulher</a>
+                        class="nav-link text-[11px] font-black uppercase tracking-[0.2em] text-black border-b-2 border-black pb-1">Mulher</a>
                     <a href="masculino.html"
-                        class="nav-link text-[11px] font-black uppercase tracking-[0.2em] text-zinc-400 hover:text-black transition-colors">Homem</a>
+                        class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-black transition-colors">Homem</a>
                 </div>
-                <a href="/#about"
+                <a href="#about"
                     class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] hover:text-zinc-500 transition-colors">Sobre</a>
-                <a href="/#produtos"
+                <a href="#produtos"
                     class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] hover:text-zinc-500 transition-colors">Colecções</a>
-                <a href="/#contato"
+                <a href="#contato"
                     class="nav-link text-[11px] font-bold uppercase tracking-[0.2em] hover:text-zinc-500 transition-colors">Contacto</a>
             </div>
 
@@ -55,16 +54,17 @@
 
         <div id="mobile-menu"
             class="absolute top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-8 transform -translate-y-full transition-transform duration-500 ease-in-out -z-10 opacity-0">
-            <a href="feminino.html" onclick="toggleMobileMenu()"
-                class="text-2xl font-black uppercase tracking-tighter hover:text-zinc-500">Mulher</a>
-            <a href="masculino.html" onclick="toggleMobileMenu()"
-                class="text-2xl font-black uppercase tracking-tighter hover:text-zinc-500">Homem</a>
-            <a href="/#about" onclick="toggleMobileMenu()"
-                class="text-2xl font-black uppercase tracking-tighter hover:text-zinc-500">Sobre</a>
-            <a href="/#produtos" onclick="toggleMobileMenu()"
-                class="text-2xl font-black uppercase tracking-tighter hover:text-zinc-500">Colecções</a>
-            <a href="/#contato" onclick="toggleMobileMenu()"
-                class="text-2xl font-black uppercase tracking-tighter hover:text-zinc-500">Contacto</a>
+            <a href="feminino.html"
+                class="text-2xl font-black uppercase tracking-tighter border-b-2 border-black pb-1">Mulher</a>
+            <a href="masculino.html"
+                class="text-2xl font-bold uppercase tracking-tighter text-zinc-400 hover:text-black">Homem</a>
+            <div class="w-12 h-px bg-zinc-200 my-4"></div>
+            <a href="#about" onclick="toggleMobileMenu()"
+                class="text-xl font-bold uppercase tracking-tighter hover:text-zinc-500">Sobre</a>
+            <a href="#produtos" onclick="toggleMobileMenu()"
+                class="text-xl font-bold uppercase tracking-tighter hover:text-zinc-500">Colecções</a>
+            <a href="#contato" onclick="toggleMobileMenu()"
+                class="text-xl font-bold uppercase tracking-tighter hover:text-zinc-500">Contacto</a>
             <div class="mt-8 text-xs font-bold text-zinc-400 tracking-widest">LUXE STUDIO © 2026</div>
         </div>
     </nav>
@@ -73,47 +73,27 @@
         class="relative min-h-screen md:h-screen flex items-center px-6 overflow-hidden pt-24 pb-12 md:pt-20 md:pb-0">
         <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div class="reveal">
-                <span class="uppercase tracking-widest text-sm mb-4 block font-semibold text-zinc-500">
-                    Edição 2026
-                </span>
+                <span class="uppercase tracking-widest text-sm mb-4 block font-semibold text-zinc-500">Colecção Feminina
+                    2026</span>
                 <h2 class="shiny-text text-4xl md:text-8xl font-800 leading-[0.9] mb-8 tracking-tighter">
-                    DESIGN <br> PARA O <br> QUOTIDIANO.
+                    DESIGN <br> PARA A <br> MULHER.
                 </h2>
                 <a href="#produtos"
-                    class="inline-block bg-black text-white px-10 py-5 rounded-full font-bold hover:scale-105 transition-transform">
-                    Ver Colecção
-                </a>
+                    class="inline-block bg-black text-white px-10 py-5 rounded-full font-bold hover:scale-105 transition-transform">Ver
+                    Colecção</a>
             </div>
             <div class="relative reveal delay-200 tilt-container h-[350px] sm:h-[450px] md:h-[600px] p-4 md:p-12"
                 onmousemove="handleTilt(event, this)" onmouseleave="resetTilt(this)">
-
                 <div id="hero-carousel" class="carousel-container tilt-image bg-white">
-                    <div class="carousel-item active">
-                        <img src="img/mulher/1.webp"
+                    <div class="carousel-item active"><img src="img/mulher/1.webp"
                             class="w-full h-full object-contain rounded-2xl shadow-2xl transition duration-700"
-                            alt="Produto 1">
-                    </div>
+                            alt="Produto 1"></div>
                     <div class="carousel-item"><img src="img/mulher/2.webp"
                             class="w-full h-full object-contain rounded-2xl shadow-2xl transition duration-700"
                             alt="Produto 2"></div>
                     <div class="carousel-item"><img src="img/mulher/3.webp"
                             class="w-full h-full object-contain rounded-2xl shadow-2xl transition duration-700"
                             alt="Produto 3"></div>
-                    <div class="carousel-item"><img src="img/mulher/4.webp"
-                            class="w-full h-full object-contain rounded-2xl shadow-2xl transition duration-700"
-                            alt="Produto 4"></div>
-                    <div class="carousel-item"><img src="img/mulher/5.webp"
-                            class="w-full h-full object-contain rounded-2xl shadow-2xl transition duration-700"
-                            alt="Produto 5"></div>
-                    <div class="carousel-item"><img src="img/mulher/6.webp"
-                            class="w-full h-full object-contain rounded-2xl shadow-2xl transition duration-700"
-                            alt="Produto 6"></div>
-                </div>
-
-                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-                    <div class="dot w-2 h-2 rounded-full bg-white/50"></div>
-                    <div class="dot w-2 h-2 rounded-full bg-white/20"></div>
-                    <div class="dot w-2 h-2 rounded-full bg-white/20"></div>
                 </div>
             </div>
         </div>
@@ -155,81 +135,9 @@
         </div>
     </section>
 
-    <section id="about" class="bg-black text-white py-24 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-                <div class="reveal">
-                    <span class="text-zinc-500 font-bold uppercase tracking-widest text-xs mb-4 block">Sobre Nós</span>
-                    <h2
-                        class="shiny-text-dark text-5xl md:text-7xl font-800 tracking-tighter uppercase mb-8 leading-none">
-                        Mais que moda,<br>um legado.
-                    </h2>
-                    <p class="text-zinc-400 text-lg leading-relaxed mb-8 font-light">
-                        A Luxe nasceu da convicção de que a verdadeira sofisticação reside na simplicidade. Num mundo
-                        de excessos, escolhemos o caminho da curadoria, oferecendo peças que transcendem estações e
-                        tendências passageiras.
-                    </p>
-                    <div class="flex gap-4">
-                        <div class="border-l-2 border-white/20 pl-4">
-                            <h4 class="text-2xl font-bold">2024</h4>
-                            <p class="text-xs text-zinc-500 uppercase tracking-widest">Fundação</p>
-                        </div>
-                        <div class="border-l-2 border-white/20 pl-4">
-                            <h4 class="text-2xl font-bold">+1k</h4>
-                            <p class="text-xs text-zinc-500 uppercase tracking-widest">Clientes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative h-[400px] md:h-[500px] w-full reveal delay-200 group">
-                    <div
-                        class="absolute inset-0 bg-white/5 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6">
-                    </div>
-                    <div class="absolute inset-0 bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
-                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop"
-                            class="w-full h-full object-cover opacity-60 hover:opacity-80 transition duration-700 hover:scale-105"
-                            alt="Conceito Luxe">
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8 border-t border-zinc-800 pt-16">
-                <div class="reveal delay-100">
-                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mb-6 text-white">
-                        <i data-lucide="feather" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-xl font-bold uppercase tracking-tight mb-3">Nossa Missão</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">
-                        Democratizar o luxo através de peças versáteis que empoderam a mulher moderna a sentir-se
-                        confiante em qualquer ambiente, do escritório ao jantar.
-                    </p>
-                </div>
-                <div class="reveal delay-200">
-                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mb-6 text-white">
-                        <i data-lucide="gem" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-xl font-bold uppercase tracking-tight mb-3">O Diferencial</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">
-                        Não vendemos apenas roupas; vendemos uma curadoria meticulosa. Cada tecido é tocado, cada corte
-                        é testado. Focamos na durabilidade e no caimento perfeito.
-                    </p>
-                </div>
-                <div class="reveal delay-300">
-                    <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mb-6 text-white">
-                        <i data-lucide="globe" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="text-xl font-bold uppercase tracking-tight mb-3">Visão de Futuro</h3>
-                    <p class="text-zinc-500 text-sm leading-relaxed">
-                        Comprometidos com o "Slow Fashion", buscamos reduzir o impacto ambiental criando peças
-                        atemporais que você amará usar por anos, não apenas meses.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="produtos" class="max-w-7xl mx-auto px-6 py-24">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4 reveal">
-            <h3 class="text-4xl font-800 tracking-tighter uppercase">Produtos em Destaque</h3>
+            <h3 class="text-4xl font-800 tracking-tighter uppercase">Destaques Femininos</h3>
             <p class="text-zinc-500 max-w-xs uppercase text-xs leading-relaxed font-semibold">Peças seleccionadas com
                 foco em durabilidade e estética minimalista.</p>
         </div>
@@ -264,48 +172,24 @@
         </div>
     </section>
 
-    <section id="contato" class="py-24 px-6 bg-white border-t border-zinc-100">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-
-                <div class="reveal">
-                    <span class="text-zinc-500 font-bold uppercase tracking-widest text-xs mb-4 block">Fale
-                        Connosco</span>
-                    <h2 class="text-5xl md:text-6xl font-800 tracking-tighter uppercase mb-6 leading-none">
-                        Dúvidas? <br>Estamos aqui.
-                    </h2>
-                    <p class="text-zinc-600 text-lg leading-relaxed mb-10 font-light">
-                        Precisa de ajuda com um pedido, informações sobre tamanhos ou curadoria? Nossa equipa VIP está
-                        pronta para auxiliar.
-                    </p>
-
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-zinc-100 p-3 rounded-full"><i data-lucide="mail" class="w-5 h-5"></i></div>
-                            <span class="text-sm font-semibold">info@luxe.studio</span>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="bg-zinc-100 p-3 rounded-full"><i data-lucide="phone" class="w-5 h-5"></i></div>
-                            <span class="text-sm font-semibold">+258 87 642 3131</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="reveal delay-100 bg-zinc-50 p-8 md:p-12 rounded-2xl border border-zinc-100">
-                    <form class="space-y-6" onsubmit="sendContactWhatsApp(event)">
-                        <input type="text" id="contact-name" placeholder="Nome" required
-                            class="w-full bg-white p-4 rounded-xl border border-zinc-200 text-sm focus:outline-none focus:border-black transition">
-                        <textarea id="contact-message" placeholder="Mensagem" rows="4" required
-                            class="w-full bg-white p-4 rounded-xl border border-zinc-200 text-sm focus:outline-none focus:border-black transition"></textarea>
-                        <button type="submit"
-                            class="w-full bg-black text-white py-4 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-zinc-800 transition">
-                            Enviar Mensagem via WhatsApp
-                        </button>
-                    </form>
-                </div>
-            </div>
+    <div id="cart-overlay"
+        class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] hidden opacity-0 transition-opacity duration-300"
+        onclick="toggleCart()"></div>
+    <div id="cart-drawer"
+        class="fixed right-0 top-0 h-full w-full md:w-[450px] bg-white z-[70] translate-x-full cart-drawer p-8 flex flex-col">
+        <div class="flex justify-between items-center mb-12">
+            <h4 class="text-2xl font-800 uppercase tracking-tighter">Seu Carrinho</h4>
+            <button onclick="toggleCart()"><i data-lucide="x" class="w-6 h-6"></i></button>
         </div>
-    </section>
+        <div id="cart-items" class="flex-grow overflow-y-auto space-y-6"></div>
+        <div class="border-t border-zinc-100 pt-8 mt-6">
+            <div class="flex justify-between text-xl font-bold mb-8 uppercase"><span>Total</span><span
+                    id="cart-total">MZN 0,00</span></div>
+            <button onclick="checkoutWhatsApp()"
+                class="w-full bg-black text-white py-6 rounded-xl font-bold text-lg hover:bg-zinc-800 transition flex items-center justify-center gap-3">Finalizar
+                via WhatsApp <i data-lucide="send" class="w-5 h-5"></i></button>
+        </div>
+    </div>
 
     <footer class="bg-black text-white pt-24 pb-12">
         <div class="max-w-7xl mx-auto px-6">
