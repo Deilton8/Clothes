@@ -1,27 +1,49 @@
 // Base de dados global de produtos (Feminino e Masculino)
 const allProducts = [
-    // --- PRODUTOS FEMININOS ---
-    { id: 1, gender: 'feminino', category: 'vestidos', name: "Mattea One Shoulder Midi", price: 6999.00, img: "img/mulher/1b.webp", description: "Design feminino encontra estilo em alta. O Vestido Midi Um Ombro Mattea é a peça que seu guarda-roupa estava esperando.", sizes: [8, 10, 12] },
-    { id: 2, gender: 'feminino', category: 'vestidos', name: "Addie Pleated Skirt Midi", price: 6999.00, img: "img/mulher/2b.webp", description: "O Vestido Midi Addie com Saia Plissada é a peça que seu guarda-roupa estava esperando.", sizes: [10, 12] },
-    { id: 3, gender: 'feminino', category: 'vestidos', name: "Elena Printed Midi", price: 6999.00, img: "img/mulher/3b.webp", description: "O Vestido Midi Estampado Elena em Florais Chelsea da Forever New.", sizes: [12] },
-    { id: 4, gender: 'feminino', category: 'vestidos', name: "Jemma Shirt Midi Dress", price: 6999.00, img: "img/mulher/4b.webp", description: "O Vestido Camisa Midi Jemma em Porcelana.", sizes: [8, 12] },
-    { id: 5, gender: 'feminino', category: 'blusas', name: "Abbey Printed Blouse", price: 3599.00, img: "img/mulher/5b.webp", description: "Blusa estampada Abbey em Olympia Holiday.", sizes: [8, 10] },
-    { id: 6, gender: 'feminino', category: 'blusas', name: "Arabella Silk Blouse", price: 4999.00, img: "img/mulher/6b.webp", description: "Blusa de seda Arabella, caimento perfeito.", sizes: [10, 12] },
+    // 1. Feminino
+    { id: 101, gender: 'feminino', category: 'vestidos', name: "Mattea One Shoulder Midi", price: 6999.00, img: "img/mulher/1b.webp", description: "Design feminino encontra estilo em alta. O Vestido Midi Um Ombro Mattea é a peça que seu guarda-roupa estava esperando.", sizes: [8, 10, 12] },
+    // 1. Masculino
+    { id: 201, gender: 'masculino', category: 'camisas', name: "Oxford Classic Fit White", price: 4500.00, img: "img/homem/m1.webp", description: "O essencial do guarda-roupa masculino. Camisa Oxford com corte clássico e tecido 100% algodão respirável.", sizes: ['S', 'M', 'L', 'XL'] },
 
-    // --- PRODUTOS MASCULINOS ---
-    { id: 101, gender: 'masculino', category: 'camisas', name: "Oxford Classic Fit White", price: 4500.00, img: "img/homem/m1.webp", description: "O essencial do guarda-roupa masculino. Camisa Oxford com corte clássico e tecido 100% algodão respirável.", sizes: ['S', 'M', 'L', 'XL'] },
-    { id: 102, gender: 'masculino', category: 'camisas', name: "Linen Resort Navy", price: 5200.00, img: "img/homem/m2.webp", description: "Perfeita para o clima tropical. Camisa de linho leve com gola resort, ideal para momentos casuais e sofisticados.", sizes: ['M', 'L', 'XL'] },
-    { id: 103, gender: 'masculino', category: 'camisas', name: "Premium Poplin Black", price: 4900.00, img: "img/homem/m3.webp", description: "A camisa preta definitiva. Tecido popeline sedoso ao toque, resistente a rugas e com caimento impecável.", sizes: ['S', 'M', 'L'] },
-    { id: 104, gender: 'masculino', category: 'calcas', name: "Tailored Chino Khaki", price: 6500.00, img: "img/homem/m4.webp", description: "Calças chino de corte à medida. Conforto moderno com um toque de elastano para mobilidade diária.", sizes: [30, 32, 34, 36] },
-    { id: 105, gender: 'masculino', category: 'calcas', name: "Smart Trouser Charcoal", price: 7200.00, img: "img/homem/m5.webp", description: "Eleve o seu look de escritório. Calças de alfaiataria em tom carvão, ideais para combinar com camisas claras.", sizes: [32, 34, 36] },
-    { id: 106, gender: 'masculino', category: 'calcas', name: "Everyday Denim Dark Wash", price: 5800.00, img: "img/homem/m6.webp", description: "O jeans perfeito para transitar do dia para a noite. Lavagem escura clássica sem desgastes artificiais.", sizes: [30, 32, 34, 36] }
+    // 2. Feminino
+    { id: 102, gender: 'feminino', category: 'vestidos', name: "Addie Pleated Skirt Midi", price: 6999.00, img: "img/mulher/2b.webp", description: "O Vestido Midi Addie com Saia Plissada é a peça que seu guarda-roupa estava esperando.", sizes: [10, 12] },
+    // 2. Masculino
+    { id: 202, gender: 'masculino', category: 'camisas', name: "Linen Resort Navy", price: 5200.00, img: "img/homem/m2.webp", description: "Perfeita para o clima tropical. Camisa de linho leve com gola resort, ideal para momentos casuais e sofisticados.", sizes: ['M', 'L', 'XL'] },
+
+    // 3. Feminino
+    { id: 103, gender: 'feminino', category: 'vestidos', name: "Elena Printed Midi", price: 6999.00, img: "img/mulher/3b.webp", description: "O Vestido Midi Estampado Elena em Florais Chelsea da Forever New.", sizes: [12] },
+    // 3. Masculino
+    { id: 203, gender: 'masculino', category: 'camisas', name: "Premium Poplin Black", price: 4900.00, img: "img/homem/m3.webp", description: "A camisa preta definitiva. Tecido popeline sedoso ao toque, resistente a rugas e com caimento impecável.", sizes: ['S', 'M', 'L'] },
+
+    // 4. Feminino
+    { id: 104, gender: 'feminino', category: 'vestidos', name: "Jemma Shirt Midi Dress", price: 6999.00, img: "img/mulher/4b.webp", description: "O Vestido Camisa Midi Jemma em Porcelana.", sizes: [8, 12] },
+    // 4. Masculino
+    { id: 204, gender: 'masculino', category: 'calcas', name: "Tailored Chino Khaki", price: 6500.00, img: "img/homem/m4.webp", description: "Calças chino de corte à medida. Conforto moderno com um toque de elastano para mobilidade diária.", sizes: [30, 32, 34, 36] },
+
+    // 5. Feminino
+    { id: 105, gender: 'feminino', category: 'blusas', name: "Abbey Printed Blouse", price: 6999.00, img: "img/mulher/5b.webp", description: "Blusa estampada Abbey em Olympia Holiday.", sizes: [8, 10] },
+    // 5. Masculino
+    { id: 205, gender: 'masculino', category: 'calcas', name: "Smart Trouser Charcoal", price: 7200.00, img: "img/homem/m5.webp", description: "Eleve o seu look de escritório. Calças de alfaiataria em tom carvão, ideais para combinar com camisas claras.", sizes: [32, 34, 36] },
+
+    // 6. Feminino
+    { id: 106, gender: 'feminino', category: 'blusas', name: "Arabella Silk Blouse", price: 6999.00, img: "img/mulher/6b.webp", description: "Blusa de seda Arabella, caimento perfeito.", sizes: [10, 12] },
+    // 6. Masculino
+    { id: 206, gender: 'masculino', category: 'calcas', name: "Everyday Denim Dark Wash", price: 5800.00, img: "img/homem/m6.webp", description: "O jeans perfeito para transitar do dia para a noite. Lavagem escura clássica sem desgastes artificiais.", sizes: [30, 32, 34, 36] },
+
+    // Itens Femininos restantes (pois a lista masculina terminou)
+    { id: 107, gender: 'feminino', category: 'blusas', name: "Bianca Printed Linen Midi Dress", price: 6999.00, img: "img/mulher/7b.webp", description: "Vestido midi de linho estampado Bianca.", sizes: [10, 12] },
+    { id: 108, gender: 'feminino', category: 'blusas', name: "Pippi Petite V Neck Linen Midi Dress", price: 6999.00, img: "img/mulher/8b.webp", description: "Vestido midi de linho com decote V e corte pequeno.", sizes: [10, 12] },
+    { id: 109, gender: 'feminino', category: 'blusas', name: "Fia Printed Shirt Midi Dress", price: 6999.00, img: "img/mulher/9.webp", description: "Vestido camisa midi estampado Fia.", sizes: [10, 12] },
+    { id: 110, gender: 'feminino', category: 'blusas', name: "Briana Printed Shirt Dress", price: 6999.00, img: "img/mulher/10b.webp", description: "Vestido camisa estampado Briana.", sizes: [10, 12] },
+    { id: 111, gender: 'feminino', category: 'blusas', name: "Esther Embroidered Midi Dress", price: 6999.00, img: "img/mulher/11b.webp", description: "Vestido midi bordado Esther.", sizes: [10, 12] }
 ];
 
 // Identifica a página actual com base no atributo do body
 const pageGender = document.body.getAttribute('data-gender') || 'feminino';
 
-// Filtra os produtos para mostrar apenas os da página actual
-const pageProducts = allProducts.filter(p => p.gender === pageGender);
+// Alteração: Se estiver na index, permite ver todos os produtos da base global
+const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+const pageProducts = isHomePage ? allProducts : allProducts.filter(p => p.gender === pageGender);
 
 let cart = JSON.parse(localStorage.getItem('luxe_cart')) || [];
 let currentCategory = 'todos';
@@ -35,11 +57,26 @@ function filterProducts(category) {
     currentCategory = category;
     visibleItemsCount = itemsPerPage;
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('bg-black', 'text-white');
-        if (btn.innerText.toLowerCase() === category.toLowerCase() ||
-            (category === 'todos' && btn.innerText.toLowerCase() === 'todos')) {
-            btn.classList.add('bg-black', 'text-white');
+    // Seleciona todos os botões de filtro
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    buttons.forEach(btn => {
+        // Remove o estado ativo de todos os botões
+        btn.classList.remove('active', 'bg-black', 'text-white');
+        btn.classList.add('border-zinc-200'); // Adiciona a borda padrão de volta
+
+        // Verifica se o texto do botão corresponde à categoria (convertendo para minúsculo para comparar)
+        // Ou se o botão clicado é o "Todos"
+        const btnText = btn.innerText.toLowerCase();
+
+        if (
+            (category === 'todos' && btnText === 'todos') ||
+            (category === 'feminino' && btnText === 'mulher') ||
+            (category === 'masculino' && btnText === 'homem') ||
+            (category === btnText)
+        ) {
+            btn.classList.add('active', 'bg-black', 'text-white');
+            btn.classList.remove('border-zinc-200');
         }
     });
 
@@ -63,13 +100,19 @@ function sortProducts(type) {
 }
 
 function applyFiltersAndSort() {
-    // Usa apenas os produtos da página actual (pageProducts) para a vitrine
-    filteredList = currentCategory === 'todos'
-        ? [...pageProducts]
-        : pageProducts.filter(p => p.category === currentCategory);
+    filteredList = [...pageProducts];
 
-    if (currentSort === 'price-asc') filteredList.sort((a, b) => a.price - b.price);
-    else if (currentSort === 'price-desc') filteredList.sort((a, b) => b.price - a.price);
+    if (currentCategory !== 'todos') {
+        filteredList = pageProducts.filter(p =>
+            p.category === currentCategory || p.gender === currentCategory
+        );
+    }
+
+    if (currentSort === 'price-asc') {
+        filteredList.sort((a, b) => a.price - b.price);
+    } else if (currentSort === 'price-desc') {
+        filteredList.sort((a, b) => b.price - a.price);
+    }
 
     renderProducts();
 }
