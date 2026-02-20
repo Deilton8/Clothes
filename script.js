@@ -242,7 +242,7 @@ function checkoutWhatsApp() {
     }
 
     // Configurações da Loja
-    const phoneNumber = "258876423131"; // Já está no formato correto (DDI + DDD + Número)
+    const phoneNumber = "258876423131"; // Já está no formato correcto (DDI + DDD + Número)
     const storeName = "LUXE STUDIO";
 
     // Construção da Mensagem
@@ -277,7 +277,7 @@ function sendContactWhatsApp(event) {
     const phoneNumber = "258876423131"; // Seu número configurado
 
     // Formatação da mensagem profissional
-    let fullMessage = `*Novo Contato via Site - LUXE*\n`;
+    let fullMessage = `*Novo Contacto via Site - LUXE*\n`;
     fullMessage += `--------------------------\n`;
     fullMessage += `*Nome:* ${name}\n`;
     fullMessage += `*Mensagem:* ${messageBody}\n`;
@@ -286,7 +286,7 @@ function sendContactWhatsApp(event) {
     const encodedMessage = encodeURIComponent(fullMessage);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-    // Abre o WhatsApp em uma nova aba
+    // Abre o WhatsApp numa nova aba
     window.open(whatsappUrl, '_blank');
 }
 
@@ -367,7 +367,7 @@ const legalText = {
     privacy: {
         title: "Política de Privacidade",
         content: `
-            <p><strong>1. Coleta de Dados:</strong> Coletamos apenas informações necessárias para processar os seus pedidos, como nome, contacto e endereço.</p>
+            <p><strong>1. Recolha de Dados:</strong> Recolhemos apenas informações necessárias para processar os seus pedidos, como nome, contacto e endereço.</p>
             <p><strong>2. Uso de Informações:</strong> Os seus dados são utilizados exclusivamente para a logística de entrega e comunicações sobre o seu pedido via WhatsApp.</p>
             <p><strong>3. Segurança:</strong> Implementamos medidas de segurança para proteger as suas informações contra acesso não autorizado.</p>
             <p><strong>4. Partilha:</strong> Não vendemos ou partilhamos os seus dados pessoais com terceiros para fins de marketing.</p>
@@ -377,8 +377,8 @@ const legalText = {
         title: "Termos de Uso",
         content: `
             <p><strong>1. Pedidos:</strong> Ao finalizar um pedido via WhatsApp, a disponibilidade do stock será confirmada pela nossa equipa.</p>
-            <p><strong>2. Pagamentos:</strong> Aceitamos pagamentos via M-Pesa, eMola ou transferência bancária conforme acordado no ato da compra.</p>
-            <p><strong>3. Devoluções:</strong> Trocas são aceites num prazo de 48h após a receção, desde que a peça mantenha a etiqueta original e não apresente sinais de uso.</p>
+            <p><strong>2. Pagamentos:</strong> Aceitamos pagamentos via M-Pesa, eMola ou transferência bancária conforme acordado no acto da compra.</p>
+            <p><strong>3. Devoluções:</strong> Trocas são aceites num prazo de 48h após a recepção, desde que a peça mantenha a etiqueta original e não apresente sinais de uso.</p>
             <p><strong>4. Envio:</strong> O prazo de entrega varia conforme a localização, sendo processado após a confirmação do pagamento.</p>
         `
     }
@@ -414,7 +414,7 @@ function toggleMobileMenu() {
         document.body.style.overflow = 'hidden';
 
         // Trocar ícone (opcional, requer recriar o ícone ou alterar atributo)
-        // Uma forma simples é rotacionar o ícone de menu
+        // Uma forma simples é rodar o ícone de menu
         icon.style.transform = 'rotate(90deg)';
     } else {
         // Fechar Menu
